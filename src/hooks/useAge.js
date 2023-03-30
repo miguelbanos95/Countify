@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 export function useAge ({ randomUser }) {
-  const [age, setAge] = useState()
+  const [age, setAge] = useState(0)
 
   const getAge = () => {
     const today = new Date()
@@ -11,7 +11,7 @@ export function useAge ({ randomUser }) {
     if (today < new Date(today.getFullYear(), birthdate.getMonth(), birthdate.getDate())) {
       age--
     }
-    return setAge(age)
+    return age
   }
 
   return ({ age, getAge })
