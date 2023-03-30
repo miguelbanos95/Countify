@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "name": "third",
+        "porcentage": 5,
+        "volume": 330
+    },
+    {
+        "id": 2,
+        "name": "half-litre",
+        "percentage": 5,
+        "volume": 500
+    }
+]

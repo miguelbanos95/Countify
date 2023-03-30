@@ -1,0 +1,85 @@
+body {
+    margin: 0;
+}
+
+.container {
+    background-size: 100%;
+    background: black;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.🍺 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    &:before,
+    &:after {
+        content: "🍺";
+        font-size: 100px;
+    }
+
+    &:before {
+        animation: cheers-after 3s ease infinite;
+    }
+
+    &:after {
+        animation: cheers-before 3s ease infinite;
+    }
+}
+
+@keyframes cheers-before {
+    0% {
+        transform: rotateZ(0) translateX(20px);
+    }
+
+    30% {
+        transform: rotateZ(0) translateX(0);
+    }
+
+    50% {
+        transform: rotateZ(-15deg) translateX(-10px);
+    }
+
+    70% {
+        transform: rotateZ(0) translateX(0);
+    }
+
+    100% {
+        transform: rotateZ(0) translateX(20px);
+    }
+}
+
+@keyframes cheers-after {
+    0% {
+        transform: rotateZ(0) rotateY(180deg) translateX(20px);
+    }
+
+    30% {
+        transform: rotateZ(0) rotateY(180deg) translateX(0);
+    }
+
+    50% {
+        transform: rotateZ(15deg) rotateY(180deg) translateX(-10px);
+    }
+
+    70% {
+        transform: rotateZ(0) rotateY(180deg) translateX(0);
+    }
+
+    100% {
+        transform: rotateZ(0) rotateY(180deg) translateX(20px);
+    }
+}
+
+.titleApp {
+    color: #fff;
+    size: 20px;
+}

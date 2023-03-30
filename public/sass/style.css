@@ -1,0 +1,153 @@
+@charset "UTF-8";
+body {
+  margin: 0;
+}
+
+.container {
+  background-size: 100%;
+  background: black;
+  height: 100vh;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.🍺 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.🍺:before, .🍺:after {
+  content: "🍺";
+  font-size: 100px;
+}
+
+.🍺:before {
+  -webkit-animation: cheers-after 3s ease infinite;
+          animation: cheers-after 3s ease infinite;
+}
+
+.🍺:after {
+  -webkit-animation: cheers-before 3s ease infinite;
+          animation: cheers-before 3s ease infinite;
+}
+
+@-webkit-keyframes cheers-before {
+  0% {
+    -webkit-transform: rotateZ(0) translateX(20px);
+            transform: rotateZ(0) translateX(20px);
+  }
+  30% {
+    -webkit-transform: rotateZ(0) translateX(0);
+            transform: rotateZ(0) translateX(0);
+  }
+  50% {
+    -webkit-transform: rotateZ(-15deg) translateX(-10px);
+            transform: rotateZ(-15deg) translateX(-10px);
+  }
+  70% {
+    -webkit-transform: rotateZ(0) translateX(0);
+            transform: rotateZ(0) translateX(0);
+  }
+  100% {
+    -webkit-transform: rotateZ(0) translateX(20px);
+            transform: rotateZ(0) translateX(20px);
+  }
+}
+
+@keyframes cheers-before {
+  0% {
+    -webkit-transform: rotateZ(0) translateX(20px);
+            transform: rotateZ(0) translateX(20px);
+  }
+  30% {
+    -webkit-transform: rotateZ(0) translateX(0);
+            transform: rotateZ(0) translateX(0);
+  }
+  50% {
+    -webkit-transform: rotateZ(-15deg) translateX(-10px);
+            transform: rotateZ(-15deg) translateX(-10px);
+  }
+  70% {
+    -webkit-transform: rotateZ(0) translateX(0);
+            transform: rotateZ(0) translateX(0);
+  }
+  100% {
+    -webkit-transform: rotateZ(0) translateX(20px);
+            transform: rotateZ(0) translateX(20px);
+  }
+}
+
+@-webkit-keyframes cheers-after {
+  0% {
+    -webkit-transform: rotateZ(0) rotateY(180deg) translateX(20px);
+            transform: rotateZ(0) rotateY(180deg) translateX(20px);
+  }
+  30% {
+    -webkit-transform: rotateZ(0) rotateY(180deg) translateX(0);
+            transform: rotateZ(0) rotateY(180deg) translateX(0);
+  }
+  50% {
+    -webkit-transform: rotateZ(15deg) rotateY(180deg) translateX(-10px);
+            transform: rotateZ(15deg) rotateY(180deg) translateX(-10px);
+  }
+  70% {
+    -webkit-transform: rotateZ(0) rotateY(180deg) translateX(0);
+            transform: rotateZ(0) rotateY(180deg) translateX(0);
+  }
+  100% {
+    -webkit-transform: rotateZ(0) rotateY(180deg) translateX(20px);
+            transform: rotateZ(0) rotateY(180deg) translateX(20px);
+  }
+}
+
+@keyframes cheers-after {
+  0% {
+    -webkit-transform: rotateZ(0) rotateY(180deg) translateX(20px);
+            transform: rotateZ(0) rotateY(180deg) translateX(20px);
+  }
+  30% {
+    -webkit-transform: rotateZ(0) rotateY(180deg) translateX(0);
+            transform: rotateZ(0) rotateY(180deg) translateX(0);
+  }
+  50% {
+    -webkit-transform: rotateZ(15deg) rotateY(180deg) translateX(-10px);
+            transform: rotateZ(15deg) rotateY(180deg) translateX(-10px);
+  }
+  70% {
+    -webkit-transform: rotateZ(0) rotateY(180deg) translateX(0);
+            transform: rotateZ(0) rotateY(180deg) translateX(0);
+  }
+  100% {
+    -webkit-transform: rotateZ(0) rotateY(180deg) translateX(20px);
+            transform: rotateZ(0) rotateY(180deg) translateX(20px);
+  }
+}
+
+.titleApp {
+  color: #fff;
+  size: 20px;
+}
+/*# sourceMappingURL=style.css.map */
