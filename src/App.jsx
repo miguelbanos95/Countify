@@ -1,16 +1,20 @@
-import { useEffect, useState } from 'react'
+import { OrbitControls } from '@react-three/drei'
+import { Canvas } from '@react-three/fiber'
+import { useEffect, useRef, useState } from 'react'
 import './App.css'
 import cerveza from './assets/images/cerveza.png'
+import Beer3D from './components/Beer3D'
 import { useBloodAlcohol } from './hooks/useBloodAlcohol'
 // import { useAge } from './hooks/useAge'
 // import users from './mocks/users.json'
 import { getRandomUser } from './services/randomUsers'
 // import { saveBeersToStorage, resetGameStorage } from './logic/storage'
 
-function App () {
+function App() {
   const [count, setCount] = useState(0)
   const [randomUser, setRandomUser] = useState([])
   const { alcoholemicRate } = useBloodAlcohol({ randomUser })
+  const canvasRef = useRef(null)
   // const { age, getAge } = useAge({ randomUser })
 
   useEffect(() => {
@@ -52,7 +56,16 @@ function App () {
       <main>
         <section>
           <div>
-            <img id='mainBeer' src={cerveza} alt='beer' />
+            <Canvas
+              ref={canvasRef}
+              camera={{ position: [0, 10, 30], fov: 20 }}
+              style={{ width: '30vw', height: '50vh' }}>
+              <OrbitControls />
+              <ambientLight intensity={0.5} />
+              <pointLight position={[10, 10, 10]} />
+              <Beer3D />
+            </Canvas>
+            {/* <img id='mainBeer' src={cerveza} alt='beer' /> */}
           </div>
           <div>
             {count && <div className='mn-counter'>{count}</div>}
