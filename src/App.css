@@ -4,49 +4,25 @@
   padding: 2rem;
   text-align: center;
 }
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
 .card {
   padding: 2em;
 }
-
 .read-the-docs {
   color: #888;
 }
 #mainBeer{
   max-width: 20rem;
-
 }
+
 main {
-  flex-direction: row;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.hola{
   display: grid;
+  flex-direction: column;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 3.5rem;
 }
@@ -63,9 +39,72 @@ section .mn-stadts{
   font-weight: bold;
   font-size: 200;
 }
+.mn-stadts h4{
+  font-weight: bold;
+  font-size: 200;
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 1.2rem;
+}
 
+.mn-counter.show{
+  opacity: 1;
+  font-size: 5em;
+  font-weight: 500;
+  font-family: inherit;
+  color: #fff;
+  padding: 10px 15px;
+  transition: opacity 1s;
+}
 .mn-counter{
+  opacity: 0;
+  transition: 0.3s;
+}
 
+.btn-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.btn-main .btn-main-add {
+  margin-bottom: 10px;
+  width: 14rem;
+  height: 4rem;
+  border-radius: 3rem;
+  border: 1px solid #bbb;
+  background: transparent;
+  color: #fff;
+}
+.btn-main .btn-main-add:hover {
+  background-color: #0062cc;
+  transition: .3 ease all;
+}
+
+.btn-main .btn-main-close {
+  width: 14rem;
+  border: 1px solid #bbb;
+  border-radius: 3rem;
+  background: transparent;
+  color: #fff;
+  
+}
+.btn-main-close:hover {
+  color: red;
+  background-color: rgba(253, 31, 31, 0.303);
+  transition: .3 ease all;
+  border: 1px solid red;
+}
+.close-count {
+  margin-top: 1.2rem;
+}
+
+.btn-main button {
+  padding: 10px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 button {
@@ -78,9 +117,6 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
 }
 button:focus,
 button:focus-visible {

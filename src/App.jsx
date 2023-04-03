@@ -13,7 +13,6 @@ function App () {
   const [randomUser, setRandomUser] = useState([])
   const { getAlcoholemicRate } = useBloodAlcohol({ randomUser, count })
   const { getAge, age } = useAge({ randomUser })
-  // const { age, getAge } = useAge({ randomUser })
 
   useEffect(() => {
     setRandomUser(getRandomUser)
@@ -26,45 +25,58 @@ function App () {
     return newHeight
   }
   /* ----------------------------------------------------------------------------------------- */
-  // Añadir consumiciones
+  // Añadir/Quitar consumiciones
   const handleOnClick = () => {
     setCount((count) => count + 1)
   }
+  const handleOnRest = () => {
+    if (count === 0) return
+    setCount((count) => count - 1)
+  }
   /* ----------------------------------------------------------------------------------------- */
+  // Cerrar la cuenta
+  const handleOnCose = () => {
+    setCount(0)
+  }
   return (
     <div className='App'>
       <header>
-        <h1>Count4-Me</h1>
+        <h1 className='title'>Count 4Me </h1>
       </header>
       <main>
-        <section>
-          <div>
-            <img id='mainBeer' src={cerveza} alt='beer' />
-          </div>
-          <div>
-            {count && <div className='mn-counter'>{count}</div>}
-            <div className='card'>
-              <button onClick={handleOnClick}>AÑADIR</button>
+        <div className='hola'>
+          <section>
+            <div>
+              <img id='mainBeer' src={cerveza} alt='beer' />
             </div>
-          </div>
-        </section>
-        <section>
-          {randomUser && (
-            <div className='mn-stadts'>
-              <h2>Estadísticas</h2>
-              <h4>Nombre: {randomUser.first_name} {randomUser.last_name}</h4>
-              <h4>Edad: {getAge(age)}</h4>
-              <h4>Altura: {heightInMeters(randomUser.height)} m</h4>
-              <h4>Peso: {randomUser.weight} kg</h4>
-              <h4>Género: {randomUser.gender}</h4>
+            <div className='btn-main'>
+              <div className={count ? 'mn-counter show' : 'mn-counter'}>{count}</div>
+              <div>
+                <button className='btn-main-add' onClick={handleOnClick}>AÑADIR</button>
+              </div>
+              <div>
+                <button className='btn-main-close' onClick={handleOnRest}>¿Te equivocaste?</button>
+              </div>
             </div>
-          )}
-          <div>Consumiciones actuales: {count} </div>
-          <div>
-            <h3>Record: </h3>
-            <h3>Tasa de alcoholemia (g/l): {getAlcoholemicRate}</h3>
-          </div>
-        </section>
+          </section>
+          <section>
+            {randomUser && (
+              <div className='mn-stadts'>
+                <h2>Estadísticas</h2>
+                <h4>Nombre: {randomUser.first_name} {randomUser.last_name}</h4>
+                <h4>Edad: {getAge(age)}</h4>
+                <h4>Altura: {heightInMeters(randomUser.height)} m</h4>
+                <h4>Peso: {randomUser.weight} kg</h4>
+                <h4>Género: {randomUser.gender}</h4>
+                <div>
+                  <h3>Record: </h3>
+                  <h3>Tasa de alcoholemia (g/l): <br />{getAlcoholemicRate}</h3>
+                </div>
+              </div>
+            )}
+            <button className='btn-main-close close-count' onClick={handleOnCose}>Cerrar Cuenta</button>
+          </section>
+        </div>
       </main>
     </div>
   )
