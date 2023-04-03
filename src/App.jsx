@@ -44,7 +44,7 @@ function App () {
         <h1 className='title'>Count 4Me </h1>
       </header>
       <main>
-        <div className='appbody'>
+        <div className='appBody'>
           <section>
             <div>
               <img id='mainBeer' src={cerveza} alt='beer' />
