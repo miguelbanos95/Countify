@@ -1,6 +1,6 @@
 import { OrbitControls } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
-import { useEffect, useRef, useState } from 'react'
+import { Suspense, useEffect, useRef, useState } from 'react'
 import './App.css'
 import cerveza from './assets/images/cerveza.png'
 import Beer3D from './components/Beer3D'
@@ -56,15 +56,17 @@ function App() {
       <main>
         <section>
           <div>
-            <Canvas
+            {/* <Canvas
               ref={canvasRef}
               camera={{ position: [0, 10, 30], fov: 20 }}
               style={{ width: '30vw', height: '50vh' }}>
               <OrbitControls />
               <ambientLight intensity={0.5} />
               <pointLight position={[10, 10, 10]} />
-              <Beer3D />
-            </Canvas>
+              <Suspense>
+                <Beer3D />
+              </Suspense>
+            </Canvas> */}
             {/* <img id='mainBeer' src={cerveza} alt='beer' /> */}
           </div>
           <div>
