@@ -56,7 +56,7 @@ function App() {
       <main>
         <section>
           <div>
-            {/* <Canvas
+            <Canvas
               ref={canvasRef}
               camera={{ position: [0, 10, 30], fov: 20 }}
               style={{ width: '30vw', height: '50vh' }}>
@@ -66,8 +66,9 @@ function App() {
               <Suspense>
                 <Beer3D />
               </Suspense>
-            </Canvas> */}
+            </Canvas>
             {/* <img id='mainBeer' src={cerveza} alt='beer' /> */}
+            <p>hola</p>
           </div>
           <div>
             {count && <div className='mn-counter'>{count}</div>}
