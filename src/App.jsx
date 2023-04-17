@@ -68,7 +68,6 @@ function App() {
               </Suspense>
             </Canvas>
             {/* <img id='mainBeer' src={cerveza} alt='beer' /> */}
-            <p>hola</p>
           </div>
           <div>
             {count && <div className='mn-counter'>{count}</div>}
