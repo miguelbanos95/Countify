@@ -9,13 +9,9 @@ import { getRandomDrinks } from './services/drinks'
 import { OrbitControls } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import { Suspense, useEffect, useRef, useState } from 'react'
-import './App.css'
 import Beer3D from './components/Beer3D'
-// import { useAge } from './hooks/useAge'
-// import users from './mocks/users.json'
-// import { saveBeersToStorage, resetGameStorage } from './logic/storage'
 
-function App() {
+function App () {
   const [count, setCount] = useState(0)
   const [randomUser, setRandomUser] = useState([])
   // const [randomBeer, setRandomBeer] = useState([])
@@ -70,7 +66,8 @@ function App() {
               <Canvas
                 ref={canvasRef}
                 camera={{ position: [0, 10, 30], fov: 20 }}
-                style={{ width: '30vw', height: '50vh' }}>
+                style={{ width: '30vw', height: '50vh' }}
+              >
                 <OrbitControls />
                 <ambientLight intensity={0.5} />
                 <pointLight position={[10, 10, 10]} />
