@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import './App.css'
 // import cerveza from './assets/images/cerveza.png'
 import { useBloodAlcohol } from './hooks/useBloodAlcohol'
@@ -7,14 +6,23 @@ import { useAge } from './hooks/useAge'
 import { getRandomUser } from './services/randomUsers'
 import { getRandomDrinks } from './services/drinks'
 // import { saveBeersToStorage, resetGameStorage } from './logic/storage'
+import { OrbitControls } from '@react-three/drei'
+import { Canvas } from '@react-three/fiber'
+import { Suspense, useEffect, useRef, useState } from 'react'
+import './App.css'
+import Beer3D from './components/Beer3D'
+// import { useAge } from './hooks/useAge'
+// import users from './mocks/users.json'
+// import { saveBeersToStorage, resetGameStorage } from './logic/storage'
 
-function App () {
+function App() {
   const [count, setCount] = useState(0)
   const [randomUser, setRandomUser] = useState([])
   // const [randomBeer, setRandomBeer] = useState([])
   const [softDrinks, setSoftDrinks] = useState({})
   const { getAlcoholemicRate } = useBloodAlcohol({ randomUser, count })
   const { getAge, age } = useAge({ randomUser })
+  const canvasRef = useRef(null)
 
   useEffect(() => {
     setRandomUser(getRandomUser)
@@ -58,7 +66,18 @@ function App () {
         <div className='mainBody'>
           <section>
             <div>
-              <img id='mainBeer' src={softDrinks.img} alt='beer' />
+              {/* <img id='mainBeer' src={softDrinks.img} alt='beer' /> */}
+              <Canvas
+                ref={canvasRef}
+                camera={{ position: [0, 10, 30], fov: 20 }}
+                style={{ width: '30vw', height: '50vh' }}>
+                <OrbitControls />
+                <ambientLight intensity={0.5} />
+                <pointLight position={[10, 10, 10]} />
+                <Suspense>
+                  <Beer3D />
+                </Suspense>
+              </Canvas>
             </div>
             <div className='btn-main'>
               <div className={count ? 'mn-counter show' : 'mn-counter'}>{count}</div>
