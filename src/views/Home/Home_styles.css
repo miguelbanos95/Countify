@@ -1,0 +1,123 @@
+#root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+  }
+  .card {
+    padding: 2em;
+  }
+  .read-the-docs {
+    color: #888;
+  }
+  #mainBeer{
+    max-width: 20rem;
+  }
+  
+  main {
+    display: flex;
+    max-width: 100%;
+  }
+  
+  .mainBody{
+    display: grid;
+    flex-direction: row;
+    /* grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); */
+    gap: 3.5rem;
+  }
+  section .mn-stadts{
+    width: 100%;
+    height: 100%;
+    padding-top: 1.1rem;
+    justify-content: center;
+    background-color: black ;
+    border-radius: 8%;
+  }
+  
+  .mn-stadts h2{
+    font-weight: bold;
+    font-size: 200;
+  }
+  .mn-stadts h4{
+    font-weight: bold;
+    font-size: 200;
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 1.2rem;
+  }
+  
+  .mn-counter.show{
+    opacity: 1;
+    font-size: 5em;
+    font-weight: 500;
+    font-family: inherit;
+    color: #fff;
+    padding: 10px 15px;
+    transition: opacity 1s;
+  }
+  .mn-counter{
+    opacity: 0;
+    transition: 0.3s;
+  }
+  
+  .btn-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+  }
+  .btn-main .btn-main-add {
+    margin-bottom: 10px;
+    width: 14rem;
+    height: 4rem;
+    border-radius: 3rem;
+    border: 1px solid #bbb;
+    background: transparent;
+    color: #fff;
+  }
+  .btn-main .btn-main-add:hover {
+    background-color: #0062cc;
+    transition: .3 ease all;
+  }
+  
+  .btn-main .btn-main-close {
+    width: 14rem;
+    border: 1px solid #bbb;
+    border-radius: 3rem;
+    background: transparent;
+    color: #fff;
+    
+  }
+  .btn-main-close:hover {
+    color: red;
+    background-color: rgba(253, 31, 31, 0.303);
+    transition: .3 ease all;
+    border: 1px solid red;
+  }
+  .close-count {
+    margin-top: 1.2rem;
+  }
+  
+  .btn-main button {
+    padding: 10px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 5.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a;
+    cursor: pointer;
+    transition: border-color 0.25s;
+  }
+  button:focus,
+  button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+  }
