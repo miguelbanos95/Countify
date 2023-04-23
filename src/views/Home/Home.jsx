@@ -10,7 +10,6 @@ import { OrbitControls } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import { Suspense, useEffect, useRef, useState } from 'react'
 import Beer3D from '../../components/Beer3D'
-// import { Link } from 'react-router-dom'
 
 function App () {
   const [count, setCount] = useState(0)
@@ -58,7 +57,7 @@ function App () {
   return (
     <div className='App'>
       <header>
-        <h1 className='title'>Count 4Me </h1>
+        <h1 className='title'>Countify</h1>
       </header>
       <main>
         <div className='mainBody'>
@@ -98,6 +97,9 @@ function App () {
                   <h4>Altura: {heightInMeters(randomUser.height)} m</h4>
                   <h4>Peso: {randomUser.weight} kg</h4>
                   <h4>Género: {randomUser.gender}</h4>
+                </div>
+                <div>
+                  <img src={randomUser.avatar} alt='photo' />
                 </div>
                 <div className='mn-stadts-rate'>
                   <h3>Record: {count}</h3>

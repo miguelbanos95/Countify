@@ -77,6 +77,8 @@
   }
   .btn-main .btn-main-add:hover {
     background-color: #0062cc;
+    border: 1.5px solid rgb(0, 0, 0);
+    color: #000000;
     transition: .3 ease all;
   }
   
@@ -92,7 +94,7 @@
     color: red;
     background-color: rgba(253, 31, 31, 0.303);
     transition: .3 ease all;
-    border: 1px solid red;
+    border: 1.5px solid red;
   }
   .close-count {
     margin-top: 1.2rem;
