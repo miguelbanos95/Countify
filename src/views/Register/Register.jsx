@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form'
 // import { yupResolver } from '@hookform/resolvers/yup'
 // import * as yup from 'yup'
 import './Register_styles.css'
+import InputComponent from '../../components/misc/InputComponent'
 // import InputComponent from '../../components/misc/InputComponent'
 
 // const schema1 = yup.object({
@@ -26,12 +27,20 @@ const Register = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* _____________________________________NOMBRE_______________________________________ */}
 
-        <input placeholder='ej. María' {...register('first_name', { required: true })} />
-
+        <InputComponent
+          id='userName'
+          label='Introduce tu nombre'
+          name='first_name'
+          register={register}
+        />
         {/* ____________________________________APELLIDO______________________________________ */}
 
-        <input placeholder='ej. Fernandez' {...register('last_name', { required: true })} />
-        {errors.last_name && <span>This field is required</span>}
+        <InputComponent
+          id='userSurname'
+          label='Introduce tu Apellido'
+          name='last_name'
+          register={register}
+        />
 
         {/* _____________________________________GENERO________________________________________ */}
 
