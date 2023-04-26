@@ -61,53 +61,55 @@ function App () {
       </header>
       <main>
         <div className='mainBody'>
-          <section>
-            <div>
-              {/* <img id='mainBeer' src={softDrinks.img} alt='beer' /> */}
-              <Canvas
-                ref={canvasRef}
-                camera={{ position: [0, 10, 30], fov: 20 }}
-                style={{ width: '30vw', height: '50vh' }}
-              >
-                <OrbitControls />
-                <ambientLight intensity={0.5} />
-                <pointLight position={[10, 10, 10]} />
-                <Suspense>
-                  <Beer3D />
-                </Suspense>
-              </Canvas>
-            </div>
-            <div className='btn-main'>
-              <div className={count ? 'mn-counter show' : 'mn-counter'}>{count}</div>
-              <div>
-                <button className='btn-main-add' onClick={handleOnClick}>AÑADIR</button>
+          <div className='section-container'>
+            <section className='section1'>
+              <div className='canvas-container'>
+                {/* <img id='mainBeer' src={softDrinks.img} alt='beer' /> */}
+                <Canvas
+                  className='canvas'
+                  ref={canvasRef}
+                  camera={{ position: [0, 10, 30], fov: 20 }}
+                >
+                  <OrbitControls />
+                  <ambientLight intensity={0.5} />
+                  <pointLight position={[10, 10, 10]} />
+                  <Suspense>
+                    <Beer3D />
+                  </Suspense>
+                </Canvas>
               </div>
-              <div>
-                <button className='btn-main-close' onClick={handleOnRest}>¿Te equivocaste?</button>
-              </div>
-            </div>
-          </section>
-          <section>
-            {randomUser && (
-              <div className='mn-stadts'>
-                <div className='mn-stadts-info'>
-                  <h2>Estadísticas</h2>
-                  <h4>Nombre: {randomUser.first_name} {randomUser.last_name}</h4>
-                  <h4>Edad: {getAge(age)}</h4>
-                  <h4>Altura: {heightInMeters(randomUser.height)} m</h4>
-                  <h4>Peso: {randomUser.weight} kg</h4>
-                  <h4>Género: {randomUser.gender}</h4>
+              <div className='btn-main'>
+                <div className={count ? 'mn-counter show' : 'mn-counter'}>{count}</div>
+                <div>
+                  <button className='btn-main-add' onClick={handleOnClick}>AÑADIR</button>
                 </div>
                 <div>
-                  <img src={randomUser.avatar} alt='photo' />
-                </div>
-                <div className='mn-stadts-rate'>
-                  <h3>Record: {count}</h3>
-                  <h4>Tasa de alcoholemia (g/l): {getAlcoholemicRate}</h4>
+                  <button className='btn-main-close' onClick={handleOnRest}>¿Te equivocaste?</button>
                 </div>
               </div>
-            )}
-          </section>
+            </section>
+            <section className='section2'>
+              {randomUser && (
+                <div className='card mn-stadts'>
+                  <div className='mn-stadts-info'>
+                    <h2>Estadísticas</h2>
+                    <h4>Nombre: {randomUser.first_name} {randomUser.last_name}</h4>
+                    <h4>Edad: {getAge(age)}</h4>
+                    <h4>Altura: {heightInMeters(randomUser.height)} m</h4>
+                    <h4>Peso: {randomUser.weight} kg</h4>
+                    <h4>Género: {randomUser.gender}</h4>
+                  </div>
+                  <div>
+                    <img src={randomUser.avatar} alt='photo' />
+                    <h3>Record: {count}</h3>
+                  </div>
+                  <div className='mn-stadts-rate'>
+                    <h4>Tasa de alcoholemia (g/l): {getAlcoholemicRate}</h4>
+                  </div>
+                </div>
+              )}
+            </section>
+          </div>
           <button className='btn-main-close close-count' onClick={handleOnCose}>Cerrar Cuenta</button>
         </div>
       </main>

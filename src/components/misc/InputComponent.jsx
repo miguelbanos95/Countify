@@ -2,7 +2,7 @@ import './InputComponent.css'
 const InputComponent = ({ label, id, name, type, placeholder, register, error, multiple }) => {
   return (
     <div className='inputGroup'>
-      <label htmlFor={id}>
+      <label htmlFor={id} className='label_input'>
         {label}
       </label>
       <input
@@ -14,7 +14,7 @@ const InputComponent = ({ label, id, name, type, placeholder, register, error, m
         {...register(name)}
         multiple={multiple}
       />
-      <p>{error}</p>
+      <span>{error}</span>
     </div>
   )
 }

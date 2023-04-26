@@ -1,3 +1,6 @@
+.label_input{
+    text-align: start;
+}
 .inputGroup{
     display: flex;
     flex-direction: column;
