@@ -4,9 +4,7 @@
     padding: 2rem;
     text-align: center;
   }
-  .card {
-    padding: 2em;
-  }
+
   .read-the-docs {
     color: #888;
   }
@@ -22,16 +20,31 @@
   .mainBody{
     display: grid;
     flex-direction: row;
-    /* grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); */
-    gap: 3.5rem;
+    gap: 1.5rem;
   }
-  section .mn-stadts{
+  .canvas-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .canvas {
+    margin-left: 5px !important;
+    margin-top: 20px !important;
+    width: 70vw !important; 
+    height: 50vh !important; 
+    border: 2px solid yellow !important;
+  }
+  .section2{
+    margin-top: 20px;
+  }
+
+  .mn-stadts{
     width: 100%;
     height: 100%;
     padding-top: 1.1rem;
     justify-content: center;
     background-color: black ;
-    border-radius: 8%;
+    border-radius: 5%;
   }
   
   .mn-stadts h2{
@@ -96,10 +109,6 @@
     transition: .3 ease all;
     border: 1.5px solid red;
   }
-  .close-count {
-    margin-top: 1.2rem;
-  }
-  
   .btn-main button {
     padding: 10px;
     color: #fff;
@@ -122,4 +131,88 @@
   button:focus,
   button:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
+  }
+  img{
+    max-width: 20rem;
+    width: 100%;
+    height: 80%;
+  }
+
+ @media screen and (max-width: 480px){
+    .mainBody {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .canvas{
+      max-width: 70vw !important;
+    }
+    .section2{
+      display: flex;
+      justify-content: center;
+    }
+    .mn-stadts{
+      width: 20rem;
+      height: 100%;
+      padding-top: 1.1rem;
+      justify-content: center;
+      background-color: black ;
+      border-radius: 5%;
+    }
+  }
+  @media screen and (min-width: 480px) and (max-width: 768px){
+    .mainBody {
+      display: flex;
+      flex-direction: column;
+    }
+    .canvas{
+      max-width: 60vw !important;
+    }
+    .col {
+      width: 100%;
+    }
+  }
+   
+  @media screen and (min-width: 768px) and (max-width: 1024px){
+    .mainBody {
+      display: flex;
+      flex-direction: column;
+    }
+    .canvas{
+      max-width: 40vw !important;
+    }
+    .col {
+      width: 100%;
+    }
+    .section-container{
+      display: flex;
+      flex-direction: row;
+      gap: 1.5rem;
+    }
+  }
+  
+  @media screen and (min-width: 1024px) and (max-width: 1500px){
+    .mainBody {
+      display: flex;
+      flex-direction: column;
+    }
+    .canvas{
+      max-width: 45vw !important;
+    }
+    .col {
+      width: 100%;
+    }
+    .section-container{
+      display: flex;
+      flex-direction: row;
+      gap: 1.5rem;
+    }
+    .mn-stadts{
+      width: 26rem;
+      height: 100%;
+      padding-top: 1.1rem;
+      justify-content: center;
+      background-color: black ;
+      border-radius: 5%;
+    }
   }

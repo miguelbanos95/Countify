@@ -37,20 +37,27 @@ const Register = () => {
 
         <InputComponent
           id='userSurname'
-          label='Introduce tu Apellido'
+          label='Introduce tu apellido'
           name='last_name'
           register={register}
         />
 
         {/* _____________________________________GENERO________________________________________ */}
 
-        <select {...register('gender', { required: true })}>
+        <label for='underline_select' className='sr-only'>Underline select</label>
+        <select
+          {...register('gender', { required: true })}
+          id='underline_select'
+          className='select_box block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer'
+        >
+          <option selected>Elige un sexo</option>
           <option value='male'>Hombre</option>
           <option value='female'>Mujer</option>
-          <option value='other'>other</option>
         </select>
 
-        <input type='submit' />
+        <div className='next'>
+          <button className='cool-button' type='submit'>Siguiente</button>
+        </div>
       </form>
     </div>
   )
