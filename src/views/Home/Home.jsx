@@ -4,6 +4,7 @@ import { useBloodAlcohol } from '../../hooks/useBloodAlcohol'
 import { useAge } from '../../hooks/useAge'
 // import users from './mocks/users.json'
 import { getRandomUser } from '../../services/randomUsers'
+import { useAuth } from '../../context/authContext'
 // import { getRandomDrinks } from '../../services/drinks'
 // import { saveBeersToStorage, resetGameStorage } from './logic/storage'
 import { OrbitControls } from '@react-three/drei'
@@ -11,7 +12,11 @@ import { Canvas } from '@react-three/fiber'
 import { Suspense, useEffect, useRef, useState } from 'react'
 import Beer3D from '../../components/Beer3D'
 
-function App () {
+function Home() {
+  // const authContext = useContext(context)
+  const { user } = useAuth()
+
+
   const [count, setCount] = useState(0)
   const [randomUser, setRandomUser] = useState([])
   // const [randomBeer, setRandomBeer] = useState([])
@@ -115,4 +120,4 @@ function App () {
   )
 }
 
-export default App
+export default Home
