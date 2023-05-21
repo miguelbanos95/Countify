@@ -18,6 +18,7 @@ const schema = yup.object({
   last_name: yup.string().required('Escriba su apellido'),
   //.required('Introduce un apellido'),
   gender: yup.string()
+})
 
 // const schema2 = yup.object({ tun
 //   height: yup.string().required('Introduce su altura'),
@@ -35,9 +36,9 @@ const Register = () => {
 
   const onSubmit = async data => {
     try {
-       await signup(data)
+      await signup(data)
       //console.log(getUser())
-       navigate('/login')
+      navigate('/login')
     }
     catch (error) {
       console.log(error)
@@ -70,7 +71,7 @@ const Register = () => {
           label='Introduce tu nombre'
           name='first_name'
           register={register}
-          error={errors.userName?.message}
+          error={errors.first_name?.message}
         />
         {/* ____________________________________APELLIDO______________________________________ */}
         <InputComponent
@@ -78,21 +79,19 @@ const Register = () => {
           label='Introduce tu apellido'
           name='last_name'
           register={register}
-          error={errors.userSurname?.message}
+          error={errors.last_name?.message}
         />
-          {/* _____________________________________GENERO________________________________________ */}
-
-          <InputSelect
-            name='gender'
-            register={register}
-            error={errors.gender?.message}
-          />
-        </div>
+        {/* _____________________________________GENERO________________________________________ */}
+        <InputSelect
+          name='gender'
+          register={register}
+          error={errors.gender?.message}
+        />
         <div className='next'>
           <button className='cool-button' type='submit'>Siguiente</button>
         </div>
-      </form>
-    </div>
+      </form >
+    </div >
   )
 }
 
