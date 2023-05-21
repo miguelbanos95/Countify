@@ -3,11 +3,12 @@ form {
     flex-direction: column;
     width: 15rem;
 }
-.select_box{
+
+.select_box {
     width: 60%;
 }
 
-.next{
+.next {
     margin-top: 2.5rem;
     /* border: 1px black;
     background-color: rgb(228, 217, 116);
@@ -21,23 +22,58 @@ form {
     border-radius: 10px;
     color: #000;
     transition: all 0.3s ease; */
-    
+
+}
+select {
+    position: relative;
 }
 
+select option {
+    position: absolute;
+    top: 10%;
+}
+.inputDiv{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
 .cool-button {
-    background-color: #3498db; /* Set button background color */
-    border: none; /* Remove button border */
-    color: white; /* Set button text color */
-    padding: 10px 20px; /* Add padding around button text */
-    text-align: center; /* Center button text */
-    text-decoration: none; /* Remove underline from button text */
-    display: inline-block; /* Display button as a block element */
-    font-size: 16px; /* Set button text size */
-    border-radius: 20px; /* Round button corners */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add box shadow effect */
-    transition-duration: 0.3s; /* Add transition effect on hover */
-  }
-  
-  .cool-button:hover {
-    background-color: #2980b9; /* Change button background color on hover */
-  }
+    background-color: #3498db;
+    /* Set button background color */
+    border: none;
+    /* Remove button border */
+    color: white;
+    /* Set button text color */
+    padding: 10px 20px;
+    /* Add padding around button text */
+    text-align: center;
+    /* Center button text */
+    text-decoration: none;
+    /* Remove underline from button text */
+    display: inline-block;
+    /* Display button as a block element */
+    font-size: 16px;
+    /* Set button text size */
+    border-radius: 20px;
+    /* Round button corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    /* Add box shadow effect */
+    transition-duration: 0.3s;
+    /* Add transition effect on hover */
+}
+
+.cool-button:hover {
+    background-color: #2980b9;
+    /* Change button background color on hover */
+}
+
+/* @media screen and (max-width: 480px) {
+    select {
+        position: relative;
+    }
+
+    select option {
+        position: absolute;
+        top: 10%;
+    }
+} */

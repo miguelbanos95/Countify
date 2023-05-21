@@ -4,6 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import './Register_styles.css'
 import InputComponent from '../../components/misc/InputComponent'
+import InputSelect from '../../components/misc/InputSelect'
 import { useAuth } from '../../context/authContext'
 import { useNavigate } from 'react-router-dom'
 import { getUser } from '../../services/users'
@@ -17,7 +18,6 @@ const schema = yup.object({
   last_name: yup.string().required('Escriba su apellido'),
   //.required('Introduce un apellido'),
   gender: yup.string()
-}).required()
 
 // const schema2 = yup.object({ tun
 //   height: yup.string().required('Introduce su altura'),
@@ -26,7 +26,6 @@ const schema = yup.object({
 // }).required()
 
 const Register = () => {
-
   const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: yupResolver(schema)
   })
@@ -81,17 +80,14 @@ const Register = () => {
           register={register}
           error={errors.userSurname?.message}
         />
-        {/* _____________________________________GENERO________________________________________ */}
-        <label htmlFor='underline_select' className='sr-only'>Underline select</label>
-        {/* <select
-          {...register('gender', { required: true })}
-          id='underline_select'
-          className='select_box block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer'
-        >
-          <option selected>Elige un sexo</option>
-          <option value='male'>Hombre</option>
-          <option value='female'>Mujer</option>
-        </select> */}
+          {/* _____________________________________GENERO________________________________________ */}
+
+          <InputSelect
+            name='gender'
+            register={register}
+            error={errors.gender?.message}
+          />
+        </div>
         <div className='next'>
           <button className='cool-button' type='submit'>Siguiente</button>
         </div>
