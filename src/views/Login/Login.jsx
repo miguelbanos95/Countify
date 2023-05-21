@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import * as yup from 'yup';
 // import bcrypt from 'bcrypt'
 import "./Login_styles.css";
 import InputComponent from "../../components/misc/InputComponent";
+import { useNavigate } from "react-router-dom";
 
 
 const schema = yup.object({
@@ -18,11 +20,26 @@ const schema = yup.object({
 
 const Login = () => {
     const [formStep, setFormStep] = useState(0)
+    const auth = getAuth();
+    const navigate = useNavigate()
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
     });
 
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => {
+        signInWithEmailAndPassword(auth, data.email, data.password)
+            .then((userCredential) => {
+                // Signed in
+                const user = userCredential.user;
+                navigate('/')
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+            });
+        //console.log(data)
+    }
 
     return (
         <div className="Login">

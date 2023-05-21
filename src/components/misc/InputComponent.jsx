@@ -14,7 +14,10 @@ const InputComponent = ({ label, id, name, type, placeholder, register, error, m
         {...register(name)}
         multiple={multiple}
       />
-      <span>{error}</span>
+      {error &&
+        <p id='outlined_error_help' className='text-xs text-red-600 dark:text-red-400'>
+          {error}
+        </p>}
     </div>
   )
 }
