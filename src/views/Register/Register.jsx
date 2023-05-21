@@ -1,22 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import './Register_styles.css'
 import InputComponent from '../../components/misc/InputComponent'
 import InputSelect from '../../components/misc/InputSelect'
+import { useAuth } from '../../context/authContext'
+import { useNavigate } from 'react-router-dom'
+import { getUser } from '../../services/users'
 // import InputComponent from '../../components/misc/InputComponent'
 
 const schema = yup.object({
-  first_name: yup.string().required('Introduce un nombre'),
-  last_name: yup.string().required('Introduce un apellido'),
-  gender: yup.string().required('Slecciona un género')
-}).required()
+  email: yup.string().email().required('Email o password incorrectas'),
+  password: yup.string().min(8).required('Email o password incorrectas'),
+  first_name: yup.string().required('Escriba su nombre'),
+  //.required('Introduce un nombre'),
+  last_name: yup.string().required('Escriba su apellido'),
+  //.required('Introduce un apellido'),
+  gender: yup.string()
 
-// const schema2 = yup.object({
+// const schema2 = yup.object({ tun
 //   height: yup.string().required('Introduce su altura'),
 //   weight: yup.string().required('Introduce su peso'),
-//   date_of_birth: yup.string().required('Slecciona un fecha')
+//   date_of_birth: yup.string().required('Selecciona un fecha')
 // }).required()
 
 const Register = () => {
@@ -24,29 +30,56 @@ const Register = () => {
     resolver: yupResolver(schema)
   })
 
-  const onSubmit = data => console.log(data)
+  const { signup } = useAuth()
+  const navigate = useNavigate()
+
+  const onSubmit = async data => {
+    try {
+       await signup(data)
+      //console.log(getUser())
+       navigate('/login')
+    }
+    catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <div>
-      <form className='' onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <InputComponent
+          id="email"
+          label="Email"
+          type="email"
+          name="email"
+          register={register}
+          placeholder="Introduzca su email"
+          error={errors.email?.message}
+        />
+        <InputComponent
+          id="password"
+          label="Password"
+          type="password"
+          name="password"
+          register={register}
+          error={errors.password?.message}
+        />
         {/* _____________________________________NOMBRE_______________________________________ */}
-        <div className='inputDiv'>
-          <InputComponent
-            id='first_name'
-            label='Introduce tu nombre'
-            name='first_name'
-            register={register}
-            error={errors.first_name?.message}
-          />
-          {/* ____________________________________APELLIDO______________________________________ */}
-
-          <InputComponent
-            id='last_name'
-            label='Introduce tu apellido'
-            name='last_name'
-            register={register}
-            error={errors.last_name?.message}
-          />
-
+        <InputComponent
+          id='userName'
+          label='Introduce tu nombre'
+          name='first_name'
+          register={register}
+          error={errors.userName?.message}
+        />
+        {/* ____________________________________APELLIDO______________________________________ */}
+        <InputComponent
+          id='userSurname'
+          label='Introduce tu apellido'
+          name='last_name'
+          register={register}
+          error={errors.userSurname?.message}
+        />
           {/* _____________________________________GENERO________________________________________ */}
 
           <InputSelect
